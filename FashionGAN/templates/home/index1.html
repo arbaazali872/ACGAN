@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section>
+        <h1>Products</h1>
+        <div class="row" >
+            {% for i in prod %}
+                <div class="col" style="margin-top: 20px;">
+                    <div class="card" style="width: 18rem;">
+                        <h1>{{ i.image.url }}</h1> 
+                        <img src="{{ i.image.url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ i.name }}</h5>
+                        <p class="card-text">{{ i.price }}</p>
+                        <a href="#" class="btn btn-primary">Add to cart</a>
+                        <a href="{% url 'item_detail' i.id %}" class="btn btn-primary">Try It On</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
